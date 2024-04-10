@@ -46,7 +46,7 @@ const displayCoins = async (id) => {
       
          container.append(nameElement, imageElement, symbolElement, priceElement, kshPriceElement)
         
-         await dislayHistoryOfCoin(id);
+         await displayHistoryOfCoin(id);
     } catch (error) {
         
       console.error("error",error)
@@ -65,9 +65,8 @@ const getCoins= async(id)=>{
         }
         return response.json()
 }catch (error) {
-    console.error("error",error)
-    throw error
-}
+    console.error("error getting coins",error)
+ } //debug statement
 }
 
 // this function displays the top ten coins
@@ -112,7 +111,8 @@ const displayTop10 = async () => {
             container.appendChild(coinCointainer)
         })
     } catch (error) {
-        console.error("error",error);
+        // debug statement
+        console.error("error displaying top 10",error);
     }
 
 }
@@ -132,12 +132,14 @@ const convertToksh = async(priceUsd) => {
     return kshPrice
 
     } catch (error) {
-       
+       //debug statement
         console.error("error converting to ksh",error);
         throw error;
     }
 }
-const dislayHistoryOfCoin = async (id) => {
+// get the elements required for the next function
+
+const displayHistoryOfCoin = async (id) => {
     try {
           // this part helps us get the cost of the cryptocurrency each day for the past 12 months
           const endDate = new Date();
@@ -158,11 +160,19 @@ const dislayHistoryOfCoin = async (id) => {
 
          const data = await response.json();
          const historicalData = data.data;
-
+         //log the historical data to the console for error checking
          // Calculate the average price for each month
      const monthlyPrices = {};
+       
+     
+     const historyButton = document.getElementById('show-history-button');
+     historyButton.addEventListener('click', () => {
+     
+     
         historicalData.forEach(entry => {
-            const date = new Date(entry.time);
+            
+        
+        const date = new Date(entry.time);
             const monthYear = `${date.getMonth() + 1}/${date.getFullYear()}`;
 
             if (!monthlyPrices[monthYear]) {
@@ -174,12 +184,19 @@ const dislayHistoryOfCoin = async (id) => {
                 priceUsd: entry.priceUsd
             });
         });
-
+        
+        const historyContainer = document.getElementById('history-container');
         // Display the price for each month
+        historyContainer.innerHTML = '';
+       // clear the content of the history container when another coin is selected
         Object.entries(monthlyPrices).forEach(([monthYear, prices]) => {
             const averagePrice = prices.reduce((total, priceEntry) => total + parseFloat(priceEntry.priceUsd), 0) / prices.length;
             console.log(`Average price for ${monthYear}: $${averagePrice.toFixed(2)}`);
     
+        const monthData = document.createElement('p');
+        monthData.textContent = `Average price for ${monthYear}: $${averagePrice.toFixed(2)}`;
+        historyContainer.appendChild(monthData);
+        });  
         });
         } catch (error) {
         console.error('error fetching historical data:', error);
