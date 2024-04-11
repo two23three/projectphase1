@@ -2,9 +2,47 @@
     text-align: center;
     
 }
-#crypto-container {
+body{
+    background-image: url('../assets/—Pngtree—trendy\ african\ maya\ seamless\ pattern_1163669.png');
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0%;
     
-    margin: 0 auto;
-    max-width: 600px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+}
+h1{
+    color: aqua;
+}
+#intro{
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+#information{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
 
 }
+#history-container{
+    padding: 20px;
+    background-color: gold;
+    border-radius: 10px;
+    transition: transform 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+ #history-container:hover {
+    background-color: lightgoldenrodyellow;
+    transform: scale(1.1);
+ }
+ #crypto-container{
+    border-radius: 50px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+ }
