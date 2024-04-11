@@ -20,6 +20,8 @@ showTopCoins.addEventListener('click', async() => {
 //this function gets the data of the coins from the api
 //it is usee to get data of any coin in the api
 const displayCoins = async (id) => {
+   // create objects to hold the crypto data
+   
     try {
         response = await getCoins(id)
         const data =  response.data
@@ -171,14 +173,16 @@ const displayHistoryOfCoin = async (id) => {
      
         historicalData.forEach(entry => {
             
-        
+        // create a date object a date object based on the entry time provided by api
         const date = new Date(entry.time);
             const monthYear = `${date.getMonth() + 1}/${date.getFullYear()}`;
-
+            //extract the month and year from the date onject
             if (!monthlyPrices[monthYear]) {
+              // if the month and year is not in the object then add it  
+                
                 monthlyPrices[monthYear] = [];
             }
-
+            // if the month and year is in the object then add the price to the array
             monthlyPrices[monthYear].push({
                 date: entry.date,
                 priceUsd: entry.priceUsd
