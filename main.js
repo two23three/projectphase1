@@ -168,7 +168,7 @@ const displayHistoryOfCoin = async (id) => {
        
      
      const historyButton = document.getElementById('show-history-button');
-     historyButton.addEventListener('click', () => {
+     historyButton.addEventListener('click',async () => {
      
      
         historicalData.forEach(entry => {
