@@ -41,11 +41,11 @@ const displayCoins = async (id) => {
         const priceElement = document.createElement('p')
         priceElement.textContent = `Price in USD: ${data.priceUsd}`
         
-      
+    
          const kshPrice = await convertToksh(data.priceUsd);
          const kshPriceElement = document.createElement('p');
          kshPriceElement.textContent = `Price in KES: ${kshPrice.toFixed(2)}`;
-      
+      //add the elements into the container
          container.append(nameElement, imageElement, symbolElement, priceElement, kshPriceElement)
         
          await displayHistoryOfCoin(id);
@@ -122,8 +122,10 @@ const displayTop10 = async () => {
 //this function handles the conversion of the price in usd to ksh
 const convertToksh = async(priceUsd) => {
     try {
+        //accses another api to get cnversion rates
         const exchangeRateResponse = await fetch(' https://open.er-api.com/v6/latest/USD');
-    if (!exchangeRateResponse.ok) {
+   
+        if (!exchangeRateResponse.ok) {
         throw new Error('Failed to fetch');
     }
     const data = await exchangeRateResponse.json();
