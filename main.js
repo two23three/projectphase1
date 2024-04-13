@@ -131,7 +131,7 @@ const convertToksh = async(priceUsd) => {
     const data = await exchangeRateResponse.json();
    
     const kshRate = data.rates.KES
-    
+    // convert the price in usd to ksh
     const kshPrice = priceUsd * kshRate  
     return kshPrice
 
@@ -210,5 +210,20 @@ const displayHistoryOfCoin = async (id) => {
     }
     
 }
+//clicking the show history button twice will hide the history container
+let display= 0
+let div = document.getElementById('history-container')
+let button = document.getElementById('show-history-button')
+button.addEventListener('click', () => {
+
+if (display == 1){
+    div.style.display = 'block';
+    display=0
+}else{
+    div.style.display = 'none';
+    display=1
+}
+
+})
 
 })
