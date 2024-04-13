@@ -2,6 +2,10 @@
     text-align: center;
     
 }
+
+button{
+    background-color: yellow;
+}
 body{
     background-image: url('../assets/—Pngtree—trendy\ african\ maya\ seamless\ pattern_1163669.png');
     background-attachment: fixed;
