@@ -1,4 +1,4 @@
-# (phase 1 poject)
+# (phase 1 project)
 
 #### Date, 2024/4/15
 
@@ -8,7 +8,7 @@
 this repository contains the files of the phase 1 project done by Tulley Mwenda
 the name of the project is Africoins a website that provides basic information 
 about cryptocurrency and trends within a year
-####Data sources 
+## Data sources 
 This project uses two APIs
 the first one is the coincap API:https://api.coincap.io/v2/assets
 and the second one is the exchange rates API:https://open.er-api.com/v6/latest/USD
