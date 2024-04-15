@@ -5,6 +5,13 @@ const showTopCoins = document.getElementById('showTopCoins');
 document.addEventListener('DOMContentLoaded', () => {
     
 
+form.addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    const id = document.getElementById('search').value
+     displayCoins(id)
+
+})
 showTopCoins.addEventListener('click', async() => {
     await displayTop10()
 
