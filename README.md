@@ -8,6 +8,7 @@
 this repository contains the files of the phase 1 project done by Tulley Mwenda
 the name of the project is Africoins a website that provides basic information 
 about cryptocurrency and trends within a year
+the project also displays the price of a coin in ksh
 ## Data sources 
 This project uses two APIs
 the first one is the coincap API:https://api.coincap.io/v2/assets
@@ -21,6 +22,7 @@ You use git clone to be able to download the documents in the GitHub
 Git
 
 ### Installation instruction
+install through terminal
 ```
 git clone git@github.com:two23three/projectphase1.git
 
@@ -34,6 +36,7 @@ CSS
 
 ## Support and contact details
 github.com/two23three
+@x tulleysba 
 
 ### License
 The content of this site is licensed under Tulley
