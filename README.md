@@ -8,6 +8,8 @@
 this repository contains the files of the phase 1 project done by Tulley Mwenda
 the name of the project is Africoins a website that provides basic information 
 about cryptocurrency and trends within a year
+one can imput the names of any cryptocurrency coin 
+example bitcoin and submit
 the project also displays the price of a coin in ksh
 ## Data sources 
 This project uses two APIs
